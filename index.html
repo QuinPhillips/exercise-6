@@ -3,73 +3,162 @@
   <head>
     <meta charset="UTF-8">
     <title>Exercise 6: Banh Mi, menus, and layout</title>
+  
 
-    <!-- These are the embed codes for the two google fonts in our document, we will learn about google fonts next week -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Ledger&display=swap" rel="stylesheet">
 
     <style>
       body {
-        background-color: white;
-        font-family: "Ledger", serif;
-        font-weight: 400;
-        font-style: normal;
+        background-color: orange;
+        font-family: Papyrus, fantasy;
+        font-weight: 600;
+        margin: 20px;
       }
 
       h1,
       h2,
       ul {
         font-family: "Inter Tight", sans-serif;
-        font-optical-sizing: auto;
-        font-style: normal;
+      }
+
+      #title h1 {
+        font-family: "Creepster", cursive;
+        font-size: 70px;
+        text-align: center;
+        margin-bottom: 25px;
       }
 
       h1 {
         font-weight: 600;
-        text-align: center
+        text-align: center;
       }
 
-      h2 {
-        font-weight: 500;
-        text-align: center
-      }
+    
+      
+       h2 {
 
+          font-family: "Metal Mania", cursive;
+          font-size: 32px;
+          font-weight: 400;
+          text-align: center;
+        }
+      
+      
+    
+      /* Navigation menu */
       ul {
         font-weight: 700;
-        font-stretch: 50px;
         list-style-type: none;
         padding: 0;
-        margin: 0;
+        margin: 20px 0;
         display: flex;
         justify-content: center;
         gap: 30px;
+        flex-wrap: wrap;
+      }
 
-        li {
-          margin: 0;
-          padding: 0;
+      li {
+        margin: 0;
+        padding: 10px 15px;
+        border: 2px solid black;
+        border-radius: 8px;
+        background: brown;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      a:hover {
+        color: lightblue;
+        text-decoration: underline;
+      }
+
+      /* Two-column sandwich grid */
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff0d6;
+        border: 3px solid brown;
+        border-radius: 12px;
+        box-sizing: border-box;
+      }
+
+      /* Individual sandwich boxes */
+      .item {
+        min-width: 0;
+        padding: 20px;
+        text-align: center;
+        background-color: white;
+        border: 2px solid brown;
+        border-radius: 12px;
+        box-sizing: border-box;
+      }
+
+      /* Keep all sandwich images the same size */
+      .item img {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        height: 220px;
+        object-fit: cover;
+        margin: 0 auto;
+        border-radius: 8px;
+      }
+
+      .item h2 {
+        margin: 15px 0 10px;
+      }
+
+      .item p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      footer {
+        text-align: center;
+        margin: 30px auto;
+        padding: 15px;
+      }
+
+      /* Make the grid fit smaller screens */
+      @media (max-width: 650px) {
+        .container {
+          grid-template-columns: 1fr;
+          padding: 12px;
+          gap: 20px;
         }
 
-        a {
-          text-decoration: none;
-          color: black;
+
+
+        body>h1 {
+          font-size: 24px;
         }
 
-        a:hover {
-          color: darkblue;
-          text-decoration: underline;
+        #title h1 {
+          font-size: 50px;
         }
-
       }
     </style>
   </head>
+
   <body>
 
-    <h1>Greg’s Banh Mi</h1>
+    <div id="title">
+      <h1>Greg’s Banh Mi</h1>
+    </div>
 
     <ul>
       <li><a href="#">Home</a></li>
@@ -78,22 +167,69 @@
       <li><a href="#">Contact</a></li>
     </ul>
 
-    <h1>At Greg’s Banh Mi, we’re serving up the perfect marriage of French and Vietnamese culinary traditions&mdash;crispy-on-the-outside, pillowy-on-the-inside baguettes loaded with bold, fresh flavours that'll make your taste buds sing.</h1>
+    <h1>
+      At Greg’s Banh Mi, we’re serving up the perfect marriage of French and
+      Vietnamese culinary traditions&mdash;crispy-on-the-outside,
+      pillowy-on-the-inside baguettes loaded with bold, fresh flavours that'll
+      make your taste buds sing.
+    </h1>
 
-    <h2>Classic Pork Banh Mi</h2>
-    <p>Tender marinated pork topped with crisp pickled vegetables, fresh cilantro, and a smear of p&acirc;t&eacute; on a perfectly crusty baguette. A traditional favorite that balances savory, sweet, and tangy flavors in every bite.</p>
+    <div class="container">
 
-    <h2>Lemongrass Chicken Banh Mi</h2>
-    <p>Grilled chicken marinated in fragrant lemongrass and garlic, paired with cucumber, jalape&ntilde;os, and our house mayo. Light yet satisfying, this sandwich brings bright, aromatic flavors that'll transport you straight to Saigon.</p>
+      <div class="item">
+        <img src="https://www.cooking-therapy.com/wp-content/uploads/2023/04/Banh-Mi-Recipe-3.jpg" alt="Classic pork banh mi">
 
-    <h2>Tofu Banh Mi</h2>
-    <p>Crispy pan-fried tofu glazed in sweet soy sauce, layered with daikon, carrots, and fresh herbs for a vegetarian delight. Proof that plant-based can be just as bold and craveable as any meat-filled sandwich.</p>
+        <h2>Classic Pork Banh Mi</h2>
+        <p>
+          Tender marinated pork topped with crisp pickled vegetables, fresh
+          cilantro, and a smear of p&acirc;t&eacute; on a perfectly crusty baguette.
+          A traditional favorite that balances savory, sweet, and tangy flavors
+          in every bite.
+        </p>
+      </div>
 
-    <h2>Five-Spice Beef Banh Mi</h2>
-    <p>Thinly sliced beef seared with aromatic five-spice blend and served with pickled vegetables and spicy Sriracha mayo. Rich, warming spices meet cool, crunchy toppings for an unforgettable flavor experience.</p>
+      <div class="item">
+        <img src="https://thewoksoflife.com/wp-content/uploads/2019/05/lemongrass-chicken-banh-mi-10.jpg" alt="Lemongrass chicken banh mi">
+
+        <h2>Lemongrass Chicken Banh Mi</h2>
+        <p>
+          Grilled chicken marinated in fragrant lemongrass and garlic, paired
+          with cucumber, jalape&ntilde;os, and our house mayo. Light yet
+          satisfying, this sandwich brings bright, aromatic flavors that'll
+          transport you straight to Saigon.
+        </p>
+      </div>
+
+      <div class="item">
+        <img src="https://cdn.pickuplimes.com/cache/fb/39/fb3944cc975720973471be2bc34310d4.jpg" alt="Tofu banh mi">
+
+        <h2>Tofu Banh Mi</h2>
+        <p>
+          Crispy pan-fried tofu glazed in sweet soy sauce, layered with daikon,
+          carrots, and fresh herbs for a vegetarian delight. Proof that
+          plant-based can be just as bold and craveable as any meat-filled
+          sandwich.
+        </p>
+      </div>
+
+      <div class="item">
+        <img src="https://bakersroyale.com/wp-content/uploads/2018/04/Banh-Mi-_-Bakers-Royale-735x1103.jpg" alt="Five-spice beef banh mi">
+
+        <h2>Five-Spice Beef Banh Mi</h2>
+        <p>
+          Thinly sliced beef seared with aromatic five-spice blend and served
+          with pickled vegetables and spicy Sriracha mayo. Rich, warming spices
+          meet cool, crunchy toppings for an unforgettable flavor experience.
+        </p>
+      </div>
+
+    </div>
 
     <footer>
-      <p>Because life’s too short for boring sandwiches. Greg’s got you covered&mdash;one crispy baguette at a time.</p>
+      <p>
+        Because life’s too short for boring sandwiches. Greg’s got you
+        covered&mdash;one crispy baguette at a time.
+      </p>
     </footer>
 
   </body>
